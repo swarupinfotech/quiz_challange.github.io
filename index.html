@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<img id="question" src="https://pbs.twimg.com/media/Dv8N_z6XgAEKyGE?format=jpg&name=small">
+  <h1>Quiz Challenge</h1>
+    <h5 id="one">Only 1 of 100 people will manage to answer these 10 questions correctly!</h5>
+        <h2>Are <span id="red">YOU</span> the <span id="red">1%</span> ?</h2>
+      
+    <div class="quiz-container">
+        
+        <div class="question" id="question1">
+            <p>Question 1: What is the capital of France?</p>
+            <button onclick="checkAnswer('A', 1, this)">A. Berlin</button>
+            <button onclick="checkAnswer('B', 1, this)">B. Madrid</button>
+            <button onclick="checkAnswer('C', 1, this)">C. Paris</button>
+            <button onclick="checkAnswer('D', 1, this)">D. Rome</button>
+        </div>
+       
+         <div class="question" id="question2"   style="display:none;">
+        <div class="question" id="question2">
+            <p>Question 2: What is the capital of Iran?</p>
+            <button onclick="checkAnswer('A', 2, this)">A. Tehran</button>
+            <button onclick="checkAnswer('B', 2, this)">B. Riadh</button>
+            <button onclick="checkAnswer('C', 2, this)">C. New Delhi</button>
+            <button onclick="checkAnswer('D', 2, this)">D. Rome</button>
+        </div>
+        </div>
+        <div class="question" id="question3" style="display:none;">
+    <p>Question 3: Smallest prime number?</p>
+    <button onclick="checkAnswer('A', 3, this)">A. 1</button>
+    <button onclick="checkAnswer('B', 3, this)">B. 3</button>
+    <button onclick="checkAnswer('C', 3, this)">C. 0</button>
+    <button onclick="checkAnswer('D', 3, this)">D. 2</button>
+</div>
+<div class="question" id="question4" style="display:none;">
+    <p>Question 4: Which planet is known as the "Red Planet"?</p>
+    <button onclick="checkAnswer('A', 4, this)">A. Mercury</button>
+    <button onclick="checkAnswer('B', 4, this)">B. Venus</button>
+    <button onclick="checkAnswer('C', 4, this)">C. Mars</button>
+    <button onclick="checkAnswer('D', 4, this)">D. Jupiter</button>
+</div>
+<div class="question" id="question5" style="display:none;">
+    <p>Question 5: Who of these is best known for its theory of relativity?</p>
+    <button onclick="checkAnswer('A', 5, this)">A. Einstein</button>
+    <button onclick="checkAnswer('B', 5, this)">B. Newton</button>
+    <button onclick="checkAnswer('C', 5, this)">C. Bohr</button>
+    <button onclick="checkAnswer('D', 5, this)">D. Planck</button>
+</div>
+<div class="question" id="question6" style="display:none;">
+    <p>Question 6: In which year did World War I start?</p>
+    <button onclick="checkAnswer('A', 6, this)">A. 1910</button>
+    <button onclick="checkAnswer('B', 6, this)">B. 1912</button>
+    <button onclick="checkAnswer('C', 6, this)">C. 1914</button>
+    <button onclick="checkAnswer('D', 6, this)">D. 1916</button>
+</div>
+<div class="question" id="question7" style="display:none;">
+    <p>Question 7: Which element has the chemical symbol "Au"?</p>
+    <button onclick="checkAnswer('A', 7, this)">A. Silver</button>
+    <button onclick="checkAnswer('B', 7, this)">B. Argon</button>
+    <button onclick="checkAnswer('C', 7, this)">C. Aluminium</button>
+    <button onclick="checkAnswer('D', 7, this)">D. Gold</button>
+</div>
+
+<div class="question" id="question8" style="display:none;">
+    <p>Question 8: What is the largest mammal in the world?</p>
+    <button onclick="checkAnswer('A', 8, this)">A. Elephant</button>
+    <button onclick="checkAnswer('B', 8, this)">B. Whale Shark</button>
+    <button onclick="checkAnswer('C', 8, this)">C. Blue Whale</button>
+    <button onclick="checkAnswer('D', 8, this)">D. Giraffe</button>
+</div>
+
+<div class="question" id="question9" style="display:none;">
+    <p>Question 9: Which country is known as the "Land of the Rising Sun"?</p>
+    <button onclick="checkAnswer('A', 9, this)">A. South Korea</button>
+    <button onclick="checkAnswer('B', 9, this)">B. Thailand</button>
+    <button onclick="checkAnswer('C', 9, this)">C. China</button>
+    <button onclick="checkAnswer('D', 9, this)">D. Japan</button>
+</div>
+<div class="question" id="question10" style="display:none;">
+    <p>Question 10: Which of these artists painted the Mona Lisa?</p>
+    <button onclick="checkAnswer('A', 10, this)">A. Van Gogh</button>
+    <button onclick="checkAnswer('B', 10, this)">B. Da Vinci</button>
+    <button onclick="checkAnswer('C', 10, this)">C. Picasso</button>
+    <button onclick="checkAnswer('D', 10, this)">D. Michelangelo</button>
+</div>
+        <!-- You can add more questions here using a similar format -->
+<div class="result" id="finalResult" style="display:none;"> <!-- changed id to "finalResult" to make it unique -->
+    <h3>Your Score: <span id="score">0</span> / 10</h3> <!-- start score should be 0 -->
+    <button onclick="restartQuiz()">Try Again</button>
+</div>
+   
+    </div>
+    <h4>Made by <a href="https://swarupinfotech.github.io">swarupinfotech</a> <br> 11.Oct.2023</h4>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quiz-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+      box-shadow: -8px -8px 15px gray;
+    width: 90%;
+    max-height:30%;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+#finalResult{
+    color:#28a745;
+    font-weight:bold;
+}
+.result {
+    display:none;
+}
+button.correct-answer {
+    background-color: #28a745;  /* Green */
+}
+
+button.incorrect-answer {
+    background-color: #dc3545;  /* Red */
+}
+    </style>
+    <script>
+        let currentQuestion = 1;
+let score = 0;
+const correctAnswers = ['C', 'A', 'D', 'C', 'A', 'C', 'D', 'C', 'D', 'B'];
+
+function checkAnswer(answer, questionNumber, clickedButton) {
+    let isCorrect = answer === correctAnswers[questionNumber - 1];
+
+    if (isCorrect) {
+        score++;
+        clickedButton.classList.add('correct-answer');
+    } else {
+        clickedButton.classList.add('incorrect-answer');
+    }
+
+   // Delay to let the user see the result before moving to the next question
+    setTimeout(() => {
+        let prevQuestionElement = document.getElementById(`question${questionNumber}`);
+        if (prevQuestionElement) {
+            prevQuestionElement.style.display = 'none';
+        }
+
+        if (currentQuestion  <10) {  // Only go to the next question if it's not the last one
+            currentQuestion++;
+            let nextQuestionElement = document.getElementById(`question${currentQuestion}`);
+            if (nextQuestionElement) {
+                nextQuestionElement.style.display = 'block';
+            }
+        } 
+      else {
+    document.getElementById('score').innerText = score.toString();
+    document.getElementById('finalResult').style.display = 'block';
+}
+    }, 350);
+}
+
+function restartQuiz() {
+    location.reload();
+}
+    </script>
+</body>
+
+</html>
